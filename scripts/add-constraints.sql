@@ -45,9 +45,15 @@ BEGIN
 END;
 $check_passengers$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_passengers
+CREATE TRIGGER check_passengers_complete
   BEFORE INSERT OR UPDATE
   ON rides
+  FOR EACH ROW
+EXECUTE PROCEDURE check_passengers();
+
+CREATE TRIGGER check_passengers_ongoing
+  BEFORE INSERT OR UPDATE
+  ON ongoing_rides
   FOR EACH ROW
 EXECUTE PROCEDURE check_passengers();
 
