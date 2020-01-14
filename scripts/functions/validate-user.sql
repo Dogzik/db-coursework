@@ -9,7 +9,7 @@ BEGIN
     SELECT *
     FROM taxi_users
     WHERE id = id_arg
-      AND pass_hash = crypt(pass_arg, pass_hash)
+      AND auth_token = crypt(pass_arg, auth_token)
     );
 END;
 $$ LANGUAGE plpgsql;

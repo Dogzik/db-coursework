@@ -23,7 +23,7 @@ CREATE TABLE taxi_users
 (
   id           INT PRIMARY KEY,
   full_name    VARCHAR(100) NOT NULL,
-  pass_hash    TEXT         NOT NULL,
+  auth_token   TEXT         NOT NULL,
   home_addr_id INT REFERENCES addresses (id),
   work_addr_id INT REFERENCES addresses (id)
 );

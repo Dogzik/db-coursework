@@ -9,7 +9,7 @@ $$
 DECLARE
   affected_rows INT;
 BEGIN
-  INSERT INTO taxi_users (id, full_name, pass_hash)
+  INSERT INTO taxi_users (id, full_name, auth_token)
   VALUES (id_arg, name_arg, crypt(pass_arg, gen_salt('bf')))
   ON CONFLICT (id) DO NOTHING;
   GET DIAGNOSTICS affected_rows = ROW_COUNT;

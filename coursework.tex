@@ -51,7 +51,7 @@
 
 \subsection{users}
 
-В данном отношении имеются 1 нетривиальная ФЗ: $id \rightarrow full\_name, id \rightarrow pash\_hash, id \rightarrow home\_addr\_id, id \rightarrow work\_addr\_id$. Остальные ФЗ получаются из данной и тривиальных по правилам вывода. 
+В данном отношении имеются 1 нетривиальная ФЗ: $id \rightarrow full\_name, id \rightarrow auth\_token, id \rightarrow home\_addr\_id, id \rightarrow work\_addr\_id$. Остальные ФЗ получаются из данной и тривиальных по правилам вывода. 
 
 В связи с тем, что замыкание $id$ с данным ФЗ и самоопределением даёт все атрибуты, а само множество неприводимо, то оно эквивалентно всем ФЗ данного отношения, a $id$ является ключом.
 
@@ -127,7 +127,7 @@ PostgreSQL создаёт древесные индексы для всех \tex
 
 \inputminted[frame=single, fontsize=\small]{python}{scripts/fill-database.py}
 	
-При запуске скрипта не удалось всего 116 вставок поездок.	
+При запуске скрипта не удалось всего 82 вставки поездок.	
 
 \section{Функции для работы и запросы}
 

@@ -12,7 +12,7 @@ BEGIN
   UPDATE taxi_users
   SET home_addr_id = home_addr_arg
   WHERE id = user_id_arg
-    AND pass_hash = crypt(pass_arg, pass_hash);
+    AND auth_token = crypt(pass_arg, auth_token);
   GET DIAGNOSTICS affected_rows = ROW_COUNT;
   RETURN affected_rows > 0;
 END;
@@ -32,7 +32,7 @@ BEGIN
   UPDATE taxi_users
   SET work_addr_id = work_addr_arg
   WHERE id = user_id_arg
-    AND pass_hash = crypt(pass_arg, pass_hash);
+    AND auth_token = crypt(pass_arg, auth_token);
   GET DIAGNOSTICS affected_rows = ROW_COUNT;
   RETURN affected_rows > 0;
 END;
