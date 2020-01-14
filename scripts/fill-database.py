@@ -101,9 +101,9 @@ def gen_ride(i):
 
 
 print('Enter username')
-username = 'dogzik'  # input()
+username = input()
 print('Enter password')
-password = '980805'  # input()
+password = input()
 with closing(psycopg2.connect(dbname='taxi',
                               user=username,
                               password=password,
