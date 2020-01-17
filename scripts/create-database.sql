@@ -75,7 +75,7 @@ CREATE TABLE ongoing_rides
   start_time     TIMESTAMP,
   level          level_t       NOT NULL,
   passengers_cnt NUMERIC(2, 0) NOT NULL,
-  user_id        INT PRIMARY KEY REFERENCES taxi_users (id),
+  user_id        INT           NOT NULL REFERENCES taxi_users (id),
   car_id         INT UNIQUE    NOT NULL REFERENCES cars (id),
-  driver_id      INT UNIQUE    NOT NULL REFERENCES taxi_drivers (id)
+  driver_id      INT PRIMARY KEY REFERENCES taxi_drivers (id)
 );

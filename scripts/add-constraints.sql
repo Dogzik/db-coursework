@@ -18,14 +18,6 @@ ALTER TABLE rides
     tsrange(start_time, end_time, '[]') WITH &&
     );
 
--- Can't have intersected rides with same user
-ALTER TABLE rides
-  ADD EXCLUDE USING gist (
-    user_id WITH =,
-    tsrange(start_time, end_time, '[]') WITH &&
-    );
-
-
 -- car must have enough space and satisfy class requirements
 CREATE OR REPLACE FUNCTION check_passengers() RETURNS TRIGGER
 AS
@@ -66,8 +58,7 @@ BEGIN
     SELECT *
     FROM ongoing_rides o_r
     WHERE (
-        o_r.user_id = NEW.user_id
-        OR o_r.driver_id = NEW.driver_id
+        o_r.driver_id = NEW.driver_id
         OR o_r.car_id = NEW.car_id
       )
       AND o_r.start_time <= NEW.end_time
